@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import './App.css'; // some classes and styles
-import LanguageContext from './context'; // this is our context object which would handle all context of the application
-import lan from './language' // this contains the text of the languages
+import './App.css';
+import LanguageContext from './context';
+import lan from './language'
 
 class App extends Component {
 
 	constructor(props) {
 		super(props);
-
-		// defining the toggle function that 
-		// would change between different languages
 		this.toggleLanguage = () => {
 			this.setState(state => ({
 				lang:
@@ -18,8 +15,7 @@ class App extends Component {
 						: lan.en
 			}));
 		};
-
-		// passing the toggleLanguage function as part of the state
+    
 		this.state = {
 			lang: lan.esp,
 			toggleLanguage: this.toggleLanguage
@@ -28,10 +24,6 @@ class App extends Component {
 
   render() {
     return (
-		// passing the state into the LanguageContext 
-		// provider so the toggle language function 
-		// and the lang object would be available to 
-		// all parts of the application
 		<LanguageContext.Provider value={this.state}>
 			<div className="App">
 				<LanguageContext.Consumer>
