@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import LanguageContext from './context';
 import lan from './language'
+
+const LanguageContext = React.createContext({
+	lang: lan.esp
+});
 
 class App extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			lang: lan.esp,
+			lang: lan.en,
 			toggleLanguage: this.toggleLanguage
 		};
 	}
